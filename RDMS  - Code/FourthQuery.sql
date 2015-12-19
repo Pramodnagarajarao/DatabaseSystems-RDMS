@@ -1,0 +1,2 @@
+select userof.user_id, subquery1.user_id from userof, (select user_id, Deposit  from reservation WHERE end_date BETWEEN TO_DATE ('2013/01/01', 'yyyy/mm/dd')
+AND TO_DATE ('2013/12/31', 'yyyy/mm/dd') ORDER BY deposit DESC) subquery1 where userof.user_id = subquery1.user_id and rownum<=3;

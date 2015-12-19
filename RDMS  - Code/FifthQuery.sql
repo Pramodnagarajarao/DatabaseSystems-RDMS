@@ -1,0 +1,2 @@
+select trunc(avg(subquery2.agee),2) from (select userof.user_id, userof.user_dob, subquery1.start_date, subquery1.user_id, subquery1.reservation_id, ABS(MONTHS_BETWEEN(userof.user_dob,subquery1.start_date)) / 12 as agee  from userof,(select * from reservation WHERE start_date BETWEEN TO_DATE ('2013/09/01', 'yyyy/mm/dd')
+AND TO_DATE ('2013/12/31', 'yyyy/mm/dd')) subquery1 where userof.user_id = subquery1.user_id) subquery2;

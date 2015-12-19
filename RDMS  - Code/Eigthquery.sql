@@ -1,0 +1,3 @@
+
+select userof.user_id, subquery1.user_id as matched_highest_user from userof, (select review.user_id, count(review.user_id), count (distinct review.villa_id), count(liked_reviews.review_id)  from review, liked_reviews where review.review_id = liked_reviews.review_id
+group by review.user_id order by count (distinct review.villa_id) desc, count(liked_reviews.review_id) desc)subquery1 where rownum<=1;

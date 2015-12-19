@@ -1,0 +1,1 @@
+select User_Id, USER_FirstName, USER_LastName, subquery1.Villa_Count FROM USEROF,(select VILLA.Owner_Id, count(VILLA.Villa_Id)as Villa_Count FROM VILLA, OWNER WHERE VILLA.Owner_Id = OWNER.Owner_Id GROUP BY VILLA.Owner_Id ORDER BY count(VILLA.Villa_Id)) subquery1 where subquery1.Owner_ID = USEROF.User_Id;

@@ -1,0 +1,1 @@
+select Villa_Id from villa_to_villafeatures where feature_id = 'Fea2' MINUS SELECT villa_id FROM villa_to_villafeatures WHERE feature_id = 'Fea6';

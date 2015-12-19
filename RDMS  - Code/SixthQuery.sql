@@ -1,0 +1,1 @@
+select villa.villa_id, villa.owner_id, subquery1.villa_id, subquery1.ratings from villa,(select villa_id, avg(Rating) AS ratings from Review group by villa_id order by (AVG(Rating)) desc) subquery1 where villa.villa_id = subquery1.villa_id and rownum<=3 ;

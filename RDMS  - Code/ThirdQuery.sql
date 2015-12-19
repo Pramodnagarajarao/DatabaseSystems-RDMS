@@ -1,0 +1,1 @@
+select userof.user_id, userof.user_firstname, userof.user_lastname from userof, (select villa.villa_id, villa.owner_id from villa, (select villa_id, count(coupon_id) from coupon where discount_percentage > 10 GROUP BY villa_id) subquery1 where villa.villa_id= subquery1.villa_id) subquery2 where userof.user_id = subquery2.owner_id ;

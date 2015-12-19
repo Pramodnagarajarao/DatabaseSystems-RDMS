@@ -1,0 +1,3 @@
+select subquery1.villa_id,subquery2.villa_id from (select sum(total1)as grand1 from (select villa_id, count(reservation_id)as total1 from reservation WHERE start_date BETWEEN TO_DATE ('2014/01/01', 'yyyy/mm/dd')
+AND TO_DATE ('2014/08/31', 'yyyy/mm/dd') group by villa_id) subquery1), (select sum(total2)as grand2 from (select villa_id, count(reservation_id)as total2 from reservation WHERE start_date BETWEEN TO_DATE ('2013/01/01', 'yyyy/mm/dd')
+AND TO_DATE ('2013/08/31', 'yyyy/mm/dd') group by villa_id) subquery2) where subquery1.grand1 > 0.1 * subquery2.grand2 ;
